@@ -4,7 +4,7 @@ description: Post a crash report, for example, if you don't want to use our SDK 
 keywords: crashes, diagnostics, errors, attachments, upload, api
 author: lucen-ms
 ms.author: lucen
-ms.date: 11/10/2020
+ms.date: 04/23/2024
 ms.topic: article
 ms.assetid: 86ef014e-b47c-4580-82f4-642b2a281e31
 ms.service: vs-appcenter
@@ -69,8 +69,8 @@ To upload a crash report other than the Apple format, make sure the log type is 
 curl -X POST \
   'https://in.appcenter.ms/logs?Api-Version=1.0.0' \
   -H 'Content-Type: application/json' \
-  -H 'app-secret: 8e14e67c-7c91-40ac-8517-c62ece8424a6' \
-  -H 'install-id: 00000000-0000-0000-0000-000000000001' \
+  -H 'app-secret: '<app secret>' \
+  -H 'install-id: '<install id>' \
   -d '{
   "logs": [
     {
@@ -78,7 +78,7 @@ curl -X POST \
       "timestamp": "2019-10-08T04:22:23.516Z",
       "appLaunchTimestamp": "2019-09-29T22:22:23.516Z",
       "processId": "123",
-      "id": "bca65f46-46ee-451b-83bb-2e358c3f45bf",
+      "id": "<id>",
       "fatal": true,
       "processName": "com.microsoft.appcenter.demo.project",
       "device": {
@@ -194,7 +194,7 @@ For example:
 curl -X POST \
   'https://in.appcenter.ms/logs?Api-Version=1.0.0' \
   -H 'Content-Type: application/json' \
-  -H 'app-secret: 8e14e67c-7c91-40ac-8517-c62ece8424a6' \
+  -H 'app-secret: '<app secret>' \
   -H 'install-id: 00000000-0000-0000-0000-000000000001' \
   -d '{
   "logs":
@@ -203,7 +203,7 @@ curl -X POST \
         "type": "appleError",
         "timestamp": "2019-10-08T02:44:55.000Z",
         "appLaunchTimestamp": "2019-09-29T22:22:23.516Z",
-        "id": "70D280D4-2343-400D-BE4C-301BB2B39ECA",
+        "id": "<id>",
         "applicationPath": "iOS/salesforce",
         "osExceptionType": "CustomerIssue (TestIssue)",
         "osExceptionCode": "0",
@@ -221,7 +221,7 @@ curl -X POST \
           "model": "iPhone9,1",
           "locale": "en-US"
         },
-        "userId": "70D280D4-2343-400D-BE4C-301BB2B39ECA",
+        "userId": "<user id>",
         "fatal": true,
         "threads": [
          {
@@ -282,7 +282,7 @@ curl -X POST \
       ],
       "binaries": [
         {
-          "id": "d449e33d-7e74-379d-8b79-15ee104ed1df",
+          "id": "<id>",
           "startAddress": "0x0000000104388000",
           "endAddress": "0x0000000104413fff",
           "name": "CrashProbeiOS",
@@ -291,7 +291,7 @@ curl -X POST \
           "architectureVariantId": 0
         },
         {
-          "id": "5da23653-d126-39f0-bdcf-994b3019f92c",
+          "id": "<id>",
           "startAddress": "0x000000010445c000",
           "endAddress": "0x0000000104467fff",
           "name": "CrashLibiOS",
@@ -315,13 +315,13 @@ For example:
 curl -X POST \
   'https://in.appcenter.ms/logs?Api-Version=1.0.0' \
   -H 'Content-Type: application/json' \
-  -H 'app-secret: 8e14e67c-7c91-40ac-8517-c62ece8424a6' \
+  -H 'app-secret: <app secret>' \
   -H 'install-id: 00000000-0000-0000-0000-000000000001' \
   -d '{
   "logs": [
     {
       "type": "managedError",
-      "id": "a7bea41b-1e4d-4e42-ae76-1025f4fdfc4f",
+      "id": "<id>",
       "userId": "TestID",
       "timestamp": "2019-11-26T02:00:04Z",
       "appLaunchTimestamp": "2019-11-26T02:00:04Z",
@@ -329,7 +329,7 @@ curl -X POST \
       "fatal": true,
       "processId": 4871,
       "processName": "com.microsoft.appcenter.sasquatch.project",
-      "sid": "bca65f46-46ee-451b-83bb-2e358c3f45bf",
+      "sid": "<sid>",
       "errorThreadId": 1,
       "errorThreadName": "main",
       "device": {
@@ -436,14 +436,14 @@ For example:
 curl -X POST \
   'https://in.appcenter.ms/logs?Api-Version=1.0.0' \
   -H 'Content-Type: application/json' \
-  -H 'app-secret: 8e14e67c-7c91-40ac-8517-c62ece8424a6' \
+  -H 'app-secret: <app secret>' \
   -H 'install-id: 00000000-0000-0000-0000-000000000001' \
   -d '{
   "logs":
   [
     {
       "type": "managedError",
-      "id": "70D280D4-2343-400D-BE4C-301BB2B39ECA",
+      "id": "<id>",
       "userId": "TestID",
       "processId": 9448,
       "processName": "Contoso.UWP.Puppet.exe",
@@ -476,10 +476,10 @@ curl -X POST \
     },
     {
       "contentType": "application/octet-stream",
-      "errorId": "70D280D4-2343-400D-BE4C-301BB2B39ECA",
+      "errorId": "<id>",
       "fileName": "minidump.dmp",
-      "id": "7b975468-5656-40a5-8242-c1907b26fc31",
-      "sid": "03693776-cdd4-46b8-bbda-12af457f1732",
+      "id": "<id>",
+      "sid": "<sid>",
       "timestamp": "2019-10-08T06:22:23.516Z",
       "type": "errorAttachment",
        "device": {
@@ -524,7 +524,7 @@ Handled errors are only supported for Android, Xamarin, Unity, UWP, WPF, and Win
 curl -X POST \
   'https://in.appcenter.ms/logs?Api-Version=1.0.0' \
   -H 'Content-Type: application/json' \
-  -H 'app-secret: 8e14e67c-7c91-40ac-8517-c62ece8424a6' \
+  -H 'app-secret: <app secret>' \
   -H 'install-id: 00000000-0000-0000-0000-000000000001' \
   -d '{
   "logs":
@@ -595,7 +595,7 @@ Below is an example of uploading a crash report and an attachment in one call.
 curl -X POST \
   'https://in.appcenter.ms/logs?Api-Version=1.0.0' \
   -H 'Content-Type: application/json' \
-  -H 'app-secret: 8e14e67c-7c91-40ac-8517-c62ece8424a6' \
+  -H 'app-secret: <app secret>' \
   -H 'install-id: 00000000-0000-0000-0000-000000000001' \
   -d '{
   "logs": [
